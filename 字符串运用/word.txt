@@ -1,0 +1,35 @@
+accumulate(binop, seq[, initial])	Repeatedly apply binary function to a sequence, accumulating results
+concat(seqs)	Concatenate zero or more iterables, any of which may be infinite.
+concatv(*seqs)	Variadic version of concat
+cons(el, seq)	Add el to beginning of (possibly infinite) sequence seq.
+count(seq)	Count the number of items in seq
+diff(*seqs, **kwargs)	Return those items that differ between sequences
+drop(n, seq)	The sequence following the first n elements
+first(seq)	The first element in a sequence
+frequencies(seq)	Find number of occurrences of each value in seq
+get(ind, seq[, default])	Get element in a sequence or dict
+groupby(key, seq)	Group a collection by a key function
+interleave(seqs)	Interleave a sequence of sequences
+interpose(el, seq)	Introduce element between each pair of elements in seq
+isdistinct(seq)	All values in sequence are distinct
+isiterable(x)	Is x iterable?
+iterate(func, x)	Repeatedly apply a function func onto an original input
+join(leftkey, leftseq, rightkey, rightseq[, …])	Join two sequences on common attributes
+last(seq)	The last element in a sequence
+mapcat(func, seqs)	Apply func to each sequence in seqs, concatenating results.
+merge_sorted(*seqs, **kwargs)	Merge and sort a collection of sorted collections
+nth(n, seq)	The nth element in a sequence
+partition(n, seq[, pad])	Partition sequence into tuples of length n
+partition_all(n, seq)	Partition all elements of sequence into tuples of length at most n
+peek(seq)	Retrieve the next element of a sequence
+pluck(ind, seqs[, default])	plucks an element or several elements from each item in a sequence.
+random_sample(prob, seq[, random_state])	Return elements from a sequence with probability of prob
+reduceby(key, binop, seq[, init])	Perform a simultaneous groupby and reduction
+remove(predicate, seq)	Return those items of sequence for which predicate(item) is False
+second(seq)	The second element in a sequence
+sliding_window(n, seq)	A sequence of overlapping subsequences
+tail(n, seq)	The last n elements of a sequence
+take(n, seq)	The first n elements of a sequence
+take_nth(n, seq)	Every nth item in seq
+topk(k, seq[, key])	Find the k largest elements of a sequence
+unique(seq[, key])	Return only unique elements of a sequence

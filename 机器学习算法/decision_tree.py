@@ -6,6 +6,9 @@ import csv
 from sklearn import tree
 from sklearn import preprocessing
 from sklearn.externals.six import StringIO
+import pandas as pd
+import numpy as np
+
 __title__ = ''
 __author__ = "liuxin"
 __mtime__ = "2018/5/18"
@@ -28,7 +31,7 @@ for row in reader:
 
     feature_list.append(row_dict)
 print(feature_list)
-print(label_list)
+# print(label_list)
 
 #然后转化成数字特征集 比如age有三个类别 001,010,100用三个数字位表示
 vec = DictVectorizer()
@@ -52,13 +55,13 @@ print("ctf: " + str(clf))
 with open("allElectronicInformationGainOri.dot", 'w') as f:
     f= tree.export_graphviz(clf,feature_names=vec.get_feature_names(),out_file=f)
 
-oneRowX = dummyX[0, :]
-print("oneRowX: " + str(oneRowX))
-
-newRowX = oneRowX
-newRowX[0] = 1
-newRowX[2] = 0
-print("newRowX: " + str(newRowX))
-
-predictedY = clf.predict(newRowX)
-print("predictedY: " + str(predictedY))
+# oneRowX = dummyX[0, :]
+# print("oneRowX: " + str(oneRowX))
+#
+# newRowX = oneRowX
+# newRowX[0] = 1
+# newRowX[2] = 0
+# print("newRowX: " + str(newRowX))
+#
+# predictedY = clf.predict(newRowX)
+# print("predictedY: " + str(predictedY))

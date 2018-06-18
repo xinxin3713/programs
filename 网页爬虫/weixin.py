@@ -54,8 +54,8 @@ def login():
         '_': get_13_time(),
     }
     r = s.get(url,params = params)
-    uuid = get_all_str_by_text_multi('window.QRLogin.uuid = "(.*?)";', text)
-    code = get_all_str_by_text_multi('window.QRLogin.code = (.*?);', text)
+    uuid = get_all_str_by_text_multi('window.QRLogin.uuid = "(.*?)";', r.text)
+    code = get_all_str_by_text_multi('window.QRLogin.code = (.*?);', r.text)
     print('获取到uuid：', uuid)
     print('获取到code：', code)
     # get qrcode
@@ -80,31 +80,13 @@ def login():
         }
         r = s.get(url,params =params)
         code = get_all_str_by_text_multi('window.code = (.*?);',r.text)[0]
-
-    if
+        if '200' == code:
+            print('验证成功')
+            break
 
 
 
 
 if __name__=='__main__':
     login()
-    #
-    #
-    #
-    # url = 'https://wx.qq.com/'
-    # r = s.get(url)
-    # params = {
-    #     'appid': 'wx782c26e4c19acffb',
-    #     'redirect_uri': 'https://wx.qq.com/cgi-bin/mmwebwx-bin/webwxnewloginpage',
-    #     'fun': 'new',
-    #     'lang': 'zh_CN',
-    #     '_': get_13_time(),
-    # }
-    # url = 'https://login.wx.qq.com/jslogin'
-    # r = s.get(url, params=params)
-    # text = r.text
-    # print(text)
-    # uuid = get_all_str_by_text_multi('window.QRLogin.uuid = "(.*?)";', text)
-    # code = get_all_str_by_text_multi('window.QRLogin.code = (.*?);', text)
-    # print('获取到uuid：', uuid)
-    # print('获取到code：', code)
+    print('成功登录')

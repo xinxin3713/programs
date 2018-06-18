@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import random
 from urllib.parse import parse_qsl
-
+from datetime import date,timedelta
 __author__ = 'Terry'
 
 
@@ -20,8 +21,8 @@ def print_dict_from_copy_headers(headers_raw):
         headers_raw_l.pop(0)
     if headers_raw_l[0].startswith('Host'):
         headers_raw_l.pop(0)
-    if headers_raw_l[-1].startswith('Cookie'):
-        headers_raw_l.pop(-1)
+    # if headers_raw_l[-1].startswith('Cookie'):
+    #     headers_raw_l.pop(-1)
 
     if ':' in headers_raw_l[-1]:
         print_headers_raw_to_dict(headers_raw_l)
@@ -52,17 +53,29 @@ Cookie	JSESSIONID=14E3D608CF07BA70F289D01E393C7E50; route=c5c62a339e7744272a5464
     '''
 
     text_fiddler = '''
+    
+    
 Connection	keep-alive
+Upgrade-Insecure-Requests	1
 User-Agent	Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36
-Accept	*/*
-Referer	https://wx2.qq.com/
+Accept	text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Referer	https://hotel.fliggy.com/hotel_list3.htm?_input_charset=&_output_charset=&searchBy=&market=0&previousChannel=&cityName=%B1%B1%BE%A9&city=110100&_fmd.h._0.r=&checkIn=2018-06-11&checkOut=2018-06-12&keywords=%CB%D98
 Accept-Encoding	gzip, deflate, br
 Accept-Language	zh-CN,zh;q=0.9
-Cookie	RK=KThVT1zFWn; ptcz=2659cbd5deb8c4545d2e806726bfe70417b8188125aeab02993676e894ffcaf6; pgv_pvid=8678266280; o_cookie=371300491; pac_uid=1_371300491; pgv_pvi=3109582848; webwxuvid=659da594fce3c377087f7fd5bf743d74723d92251293001ea296aeb58d3cc3dca901e35a75c840c313d33a4adf2362fc; LW_uid=U1W572E2P9l809Y9z5q2i5R207; eas_sid=i1s542D2o9W8n9i9H5f321Q9a5; tvfe_boss_uuid=4e0ced2e6a955360; pt2gguin=o0371300491; LW_sid=P1S562A6U8o1032276v685R5P6; wxuin=2752599605; wxsid=y4sUlwe4tq+sHMcb; mm_lang=zh_CN; webwx_data_ticket=gSeSPI6jpG8hMV9y1pxco/MX; webwx_auth_ticket=CIsBENe1npsFGoABQOf9kDYgRrqnejrWOfulvsaVHj0rK99FnYT0MmQo5hfD0SVboCsCpbH1PIAGbeeNOOb7sYjmbHvgEwwfGEHQnSb7xAWu7vBScKmxTwK6g/tXjXkOp8N3vFPpWa/n0Smqx+ZABNb9G/qDgNlTTJ4zBcr49Tn8Tlx5+s3kY9yzdsA=; wxloadtime=1526862955_expired; wxpluginkey=1526858402
-  '''
-
+Cookie	cna=BMc4E0D1sksCAXlFXoYnGfv2; hng=CN%7Czh-CN%7CCNY%7C156; t=41eb842f8063a83a1ab8bce296752dac; _tb_token_=73b57b7ee9be6; cookie2=33484079c1fd74ed0f6e8d9ce532c580; UM_distinctid=163dfd07d1c149-0ac3f1b70dad5f-3a614f0b-144000-163dfd07d1d7ae; CNZZDATA1253581663=1556969732-1528467023-https%253A%252F%252Fwww.fliggy.com%252F%7C1528467023; JSESSIONID=E4B604952989616A5FB9E9564A72A022; isg=BOjoToynJ5FLjQsVwMzze_OtudY6uUagkwpiZKIZDWNW_YlnSiISq9z_8JUNdATz
+ '''
     print_dict_from_copy_headers(text_fiddler)
 
 
     # url_params = 'token=5a1fe73ef0892cff6e0f920ea18077f5&tpl=mn&apiver=v3&tt=1521463458242&fr=login&loginversion=v4&vcodetype=f015b0hy0qvcbwWlmY1AjwsYOr7B%2B%2Fy8oI5WUh9RUFKopq83%2BU%2BZ%2FZpAbumIALvlxxPf9fFWu3JCDqJCwcjeElWMI7n%2B0Ow4kYiB&traceid=DCDEE301&callback=bd__cbs__hsvzb2'
-    # print_url_params_new(url_params)
+    # print_url_params_new(url_params) %CB%D98'
+
+    t =str('速8'.encode('gbk'))[1:]
+    city = t.upper().replace('\X','%')
+    print(city)
+
+
+
+
+
+

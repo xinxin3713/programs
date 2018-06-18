@@ -24,7 +24,17 @@ def print_files(path):
             chiled_path = os.path.join(path,chiled)
             print_files(chiled_path)
 
+def print_files2(path):
+    childs =os.listdir(path)
+    for child in childs :
+        child_path =os.path.join(path,child)
+        if os.path.isdir(child_path):
+            print_files2(child_path)
+        else:
+            print(child_path)
+
 print_files('E:\DjangoBlog')
+print_files2('E:\DjangoBlog')
 
 #输出含多个嵌套列表
 
